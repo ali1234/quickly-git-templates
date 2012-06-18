@@ -2,7 +2,7 @@ These templates are virtually exact copies of ubuntu-application and
 ubuntu-cli. The only difference is they are backed by a git repository 
 instead of a bzr repository.
 
-You can create, save, package, and share projects made with these templates. 
+You can create, package, and share projects made with these templates. 
 
 You cannot yet release or submitubuntu with them.
 
@@ -13,5 +13,11 @@ mkdir ~/quickly-templates
 ln -s $PWD/quickly-git-templates/git-python-gtk/ ~/quickly-templates/
 ln -s $PWD/quickly-git-templates/git-python-cli/ ~/quickly-templates/
 quickly create git-python-gtk myapp
+
+Note that with these templates "quickly save" will NOT add any untracked files 
+to the index. This is a really horrible feature of existing quickly templates
+and the main reason I don't want to use them: they create uselessly messy
+histories. You probably shouldn't use save at all, just use git directly.
+You do like git right? Why else would you use this?
 
 -- Alistair Buxton <a.j.buxton@gmail.com>
