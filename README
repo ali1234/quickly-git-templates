@@ -6,4 +6,12 @@ You can create, save, package, and share projects made with these templates.
 
 You cannot yet release or submitubuntu with them.
 
+Use:
+
+git clone git://github.com/ali1234/quickly-git-templates.git
+mkdir ~/quickly-templates
+ln -s $PWD/quickly-git-templates/git-python-gtk/ ~/quickly-templates/
+ln -s $PWD/quickly-git-templates/git-python-cli/ ~/quickly-templates/
+quickly create git-python-gtk myapp
+
 -- Alistair Buxton <a.j.buxton@gmail.com>
