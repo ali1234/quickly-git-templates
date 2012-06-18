@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 # Copyright 2009 Didier Roche
 #
-# This file is part of Quickly ubuntu-application template
+# This file is part of Quickly git-python-gtk template
 #
 #This program is free software: you can redistribute it and/or modify it 
 #under the terms of the GNU General Public License version 3, as published 
@@ -185,7 +185,7 @@ def licensing(license=None):
     supported_licenses_list = get_supported_licenses()
     supported_licenses_list.sort()
     if license not in supported_licenses_list and license != 'other':
-        cmd = commands.get_command('license', 'ubuntu-application')
+        cmd = commands.get_command('license', 'git-python-gtk')
         templatetools.usage_error(_("Unknown licence %s.") % license, cmd=cmd)
 
     # get Copyright holders in AUTHORS file
@@ -306,7 +306,7 @@ if __name__ == "__main__":
     templatetools.handle_additional_parameters(sys.argv, help, shell_completion, usage=usage)
     license = None
     if len(sys.argv) > 2:
-        cmd = commands.get_command('license', 'ubuntu-application')
+        cmd = commands.get_command('license', 'git-python-gtk')
         templatetools.usage_error(_("This command only take one optional argument."), cmd=cmd)
     if len(sys.argv) == 2:
         license = sys.argv[1]

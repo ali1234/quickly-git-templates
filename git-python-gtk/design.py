@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 # Copyright 2009 Didier Roche
 #
-# This file is part of Quickly ubuntu-application template
+# This file is part of Quickly git-python-gtk template
 #
 #This program is free software: you can redistribute it and/or modify it 
 #under the terms of the GNU General Public License version 3, as published 
@@ -47,7 +47,7 @@ for ui_file in glob.glob("data/ui/*.ui"):
     else:
         files.append(ui_file)
 
-(project_version, template_version) = templatetools.get_project_and_template_versions("ubuntu-application")
+(project_version, template_version) = templatetools.get_project_and_template_versions("git-python-gtk")
 if project_version < '11.12': # GTK+ 3 changeover
     glade_cmd = 'GLADE_CATALOG_PATH=./data/ui glade-gtk2'
 else:

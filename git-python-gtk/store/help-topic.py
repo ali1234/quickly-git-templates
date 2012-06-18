@@ -2,7 +2,7 @@
 # Copyright 2010 Didier Roche
 # Copyright 2010 Tony Byrne
 #
-# This file is part of Quickly ubuntu-application template
+# This file is part of Quickly git-python-gtk template
 #
 #This program is free software: you can redistribute it and/or modify it 
 #under the terms of the GNU General Public License version 3, as published 

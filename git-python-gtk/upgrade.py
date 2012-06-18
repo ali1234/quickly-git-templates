@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 # Copyright 2009 Didier Roche
 #
-# This file is part of Quickly ubuntu-application template
+# This file is part of Quickly git-python-gtk template
 #
 #This program is free software: you can redistribute it and/or modify it 
 #under the terms of the GNU General Public License version 3, as published 
@@ -51,7 +51,7 @@ while i < len(sys.argv):
         if arg == '--internal':
             internal_run = True
         else:
-            cmd = commands.get_command('upgrade', 'ubuntu-application')
+            cmd = commands.get_command('upgrade', 'git-python-gtk')
             templatetools.usage_error(_("Unknown option: %s."  % arg), cmd=cmd)
     else:
         if project_version is None:
@@ -60,7 +60,7 @@ while i < len(sys.argv):
             template_version = arg
     i += 1
 
-(project_version_inspected, template_version_inspected) = templatetools.get_project_and_template_versions("ubuntu-application")
+(project_version_inspected, template_version_inspected) = templatetools.get_project_and_template_versions("git-python-gtk")
 if project_version is None:
     project_version = project_version_inspected
 if template_version is None:
@@ -251,5 +251,5 @@ porting information and when you have finished porting your code, run
 'quickly upgrade' to get rid of this message.""")
     sys.exit(0)
 
-templatetools.update_version_in_project_file(template_version, 'ubuntu-application')
+templatetools.update_version_in_project_file(template_version, 'git-python-gtk')
 sys.exit(0)

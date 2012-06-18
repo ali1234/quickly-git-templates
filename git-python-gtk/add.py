@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 # Copyright 2009 Didier Roche
 #
-# This file is part of Quickly ubuntu-application template
+# This file is part of Quickly git-python-gtk template
 #
 #This program is free software: you can redistribute it and/or modify it 
 #under the terms of the GNU General Public License version 3, as published 
@@ -86,12 +86,12 @@ def shell_completion(argv):
 templatetools.handle_additional_parameters(sys.argv, help, shell_completion, usage=usage)
 
 if len(sys.argv) < 2:
-    cmd = commands.get_command('add', 'ubuntu-application')
-    templatetools.usage_error(_("Cannot add, no plugin name provided."), cmd=cmd, template='ubuntu-application')
+    cmd = commands.get_command('add', 'git-python-gtk')
+    templatetools.usage_error(_("Cannot add, no plugin name provided."), cmd=cmd, template='git-python-gtk')
 
 if argv[1] in ADDABLE.keys():
     ADDABLE[argv[1]].add(options)
 else:
-    cmd = commands.get_command('add', 'ubuntu-application')
-    templatetools.usage_error(_('Cannot add, did not recognize plugin name: %s' % argv[1]), cmd=cmd, template='ubuntu-application')
+    cmd = commands.get_command('add', 'git-python-gtk')
+    templatetools.usage_error(_('Cannot add, did not recognize plugin name: %s' % argv[1]), cmd=cmd, template='git-python-gtk')
     sys.exit(4)

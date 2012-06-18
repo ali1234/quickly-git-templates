@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 # Copyright 2009 Didier Roche
 #
-# This file is part of Quickly ubuntu-application template
+# This file is part of Quickly git-python-gtk template
 #
 #This program is free software: you can redistribute it and/or modify it
 #under the terms of the GNU General Public License version 3, as published
@@ -82,10 +82,10 @@ while i < len(argv):
                 ppa_name = argv[i + 1]
                 i += 1
             else:
-                cmd = commands.get_command('share', 'ubuntu-application')
+                cmd = commands.get_command('share', 'git-python-gtk')
                 templatetools.usage_error(_("No PPA provided."), cmd=cmd)
         else:
-            cmd = commands.get_command('share', 'ubuntu-application')
+            cmd = commands.get_command('share', 'git-python-gtk')
             templatetools.usage_error(_("Unknown option: %s."  % arg), cmd=cmd)
     else:
         args.append(arg)
