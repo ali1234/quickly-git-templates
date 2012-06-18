@@ -1,0 +1,9 @@
+These templates are virtually exact copies of ubuntu-application and 
+ubuntu-cli. The only difference is they are backed by a git repository 
+instead of a bzr repository.
+
+You can create, save, package, and share projects made with these templates. 
+
+You cannot yet release or submitubuntu with them.
+
+-- Alistair Buxton <a.j.buxton@gmail.com>
