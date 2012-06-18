@@ -100,12 +100,12 @@ except:
     pass
 
 # add it to revision control
-print _("Creating bzr repository and committing")
-bzr_instance = subprocess.Popen(["bzr", "init"], stdout=subprocess.PIPE)
-bzr_instance.wait()
-bzr_instance = subprocess.Popen(["bzr", "add"], stdout=subprocess.PIPE)
-bzr_instance.wait()
-bzr_instance = subprocess.Popen(["bzr", "commit", "-m", "Initial project creation with Quickly!"], stderr=subprocess.PIPE)
+print _("Creating git repository and committing")
+git_instance = subprocess.Popen(["git", "init"], stdout=subprocess.PIPE)
+git_instance.wait()
+git_instance = subprocess.Popen(["git", "add", "."], stdout=subprocess.PIPE)
+git_instance.wait()
+git_instance = subprocess.Popen(["git", "commit", "-m", "Initial project creation with Quickly!"], stderr=subprocess.PIPE)
 
 env = os.environ.copy()
 # Compile schema if present
@@ -124,7 +124,7 @@ if templatetools.is_X_display() and os.path.isfile(exec_file):
     print _("Launching your newly created project!")
     subprocess.call(['./' + project_name], cwd='bin/', env=env)
 
-bzr_instance.wait()
+git_instance.wait()
 
 print _("Congrats, your new project is setup! cd %s/ to start hacking.") % os.getcwd()
 

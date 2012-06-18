@@ -317,15 +317,13 @@ def updatepackaging(changelog=None, no_changelog=False, installopt=False):
 
     # check if first python-mkdebian (debian/ creation) to commit it
     # that means debian/ under unknown
-    bzr_instance = subprocess.Popen(["bzr", "status"], stdout=subprocess.PIPE)
-    bzr_status, err = bzr_instance.communicate()
-    if bzr_instance.returncode != 0:
-        return(bzr_instance.returncode)
+    git_instance = subprocess.Popen(["git", "status"], stdout=subprocess.PIPE)
+    git_status, err = git_instance.communicate()
+    if git_instance.returncode != 0:
+        return(git_instance.returncode)
 
-    if re.match('(.|\n)*unknown:\n.*debian/(.|\n)*', bzr_status):
-        return_code = filter_exec_command(["bzr", "add"])
-        if return_code == 0:
-            return_code = filter_exec_command(["bzr", "commit", "-m", 'Creating ubuntu package'])
+    if re.match('(.|\n)*Untracked files:\n.*debian/(.|\n)*', git_status):
+            return_code = filter_exec_command(["git", "commit", "-a", "-m", 'Creating ubuntu package'])
 
     return(return_code)
 
@@ -413,7 +411,7 @@ def push_to_ppa(dput_ppa_name, changes_file, keyid=None):
     """ Push some code to a ppa """
 
     # creating local binary package
-    buildcommand = ["dpkg-buildpackage", "-S", "-I.bzr"]
+    buildcommand = ["dpkg-buildpackage", "-S", "-I.git"]
     if keyid:
         buildcommand.append("-k%s" % keyid)
     return_code = filter_exec_command(buildcommand)

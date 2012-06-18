@@ -170,36 +170,36 @@ def change_xml_elem(xml_file, path, attribute_name, attribute_value, value, attr
 def collect_commit_messages(previous_version):
     '''Collect commit messages from last revision'''
 
-    bzr_command = ['bzr', 'log']
+    git_command = ['git', 'log']
     if previous_version:
-        bzr_command.extend(['-r', 'tag:%s..' % previous_version])
+        git_command.extend(['%s..' % previous_version])
     else:
         previous_version = ''
-    bzr_instance = subprocess.Popen(bzr_command, stdout=subprocess.PIPE)
-    result, err = bzr_instance.communicate()
+    git_instance = subprocess.Popen(git_command, stdout=subprocess.PIPE)
+    result, err = git_instance.communicate()
 
-    if bzr_instance.returncode != 0:
+    if git_instance.returncode != 0:
         return(None)
 
     changelog = []
     buffered_message = ""
     collect_switch = False
     uncollect_msg = (_('quickly saved'), _('commit before release'))
-    for line in result.splitlines(): # pylint: disable=E1103
-        #print buffered_message
-        if line == 'message:':
-            collect_switch = True
-            continue
-        elif '----------------------' in line:
-            if buffered_message:
-                changelog.append(buffered_message.strip())
-                buffered_message = ""
-            collect_switch = False
-        elif line == 'tags: %s' % previous_version:
-            break
-        if collect_switch and not line.strip() in uncollect_msg:
-            buffered_message +=' %s' % line
-    return(changelog)
+#    for line in result.splitlines(): # pylint: disable=E1103
+#        #print buffered_message
+#        if line == '':
+#            collect_switch = True
+#            continue
+#        elif '----------------------' in line:
+#            if buffered_message:
+#                changelog.append(buffered_message.strip())
+#                buffered_message = ""
+#            collect_switch = False
+#        elif line == 'tags: %s' % previous_version:
+#            break
+#        if collect_switch and not line.strip() in uncollect_msg:
+#            buffered_message +=' %s' % line
+    return(result)
 
 
 def get_quickly_editors():
@@ -254,10 +254,10 @@ def get_all_emails(launchpad=None):
     email_list = []
     email_list.append(take_email_from_string(os.getenv("DEBEMAIL")))
 
-    bzr_instance = subprocess.Popen(["bzr", "whoami"], stdout=subprocess.PIPE)
-    bzr_user, err = bzr_instance.communicate()
-    if bzr_instance.returncode == 0:
-        email_list.append(take_email_from_string(bzr_user))
+    git_instance = subprocess.Popen(["git", "config", "--get", "user.email"], stdout=subprocess.PIPE)
+    git_email, err = git_instance.communicate()
+    if git_instance.returncode == 0:
+        email_list.append(git_email)
     email_list.append(take_email_from_string(os.getenv("EMAIL")))
     
     # those information can be missing if there were no packaging or license

@@ -29,10 +29,10 @@ from quickly import templatetools
 def usage():
     templatetools.print_usage(_('quickly save [comments]'))
 def help():
-    print _("""This command commits all changes since the last save to bzr. Note that 
+    print _("""This command commits all changes since the last save to git. Note that 
 it does not push changes to any back up location. If you need revert
-or otherwise use the revision control, use bzr directly:
-$ bzr help""")
+or otherwise use the revision control, use git directly:
+$ git help""")
 templatetools.handle_additional_parameters(sys.argv, help, usage=usage)
 
 #set either a default message or the specified message
@@ -41,8 +41,7 @@ if commit_msg == "":
    commit_msg = _('quickly saved')
 
 #save away
-subprocess.call(["bzr", "add"])
-return_code = subprocess.call(["bzr", "commit", "-m" + commit_msg])
+return_code = subprocess.call(["git", "commit", "-a", "-m" + commit_msg])
 if return_code == 3:
     print _("It seems that you have no change to record.")
 
