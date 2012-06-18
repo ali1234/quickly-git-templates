@@ -1,0 +1,19 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="g_u_i_d_e">
+
+<info>
+  <!-- edit xref to re-locate this guide in the help hierarchy -->
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Your Name</name>
+    <email>Your E-mail</email>
+    <years>2010</years>
+  </credit>
+  <desc>Optional short description of sentence_name for contents page</desc>
+</info>
+
+<title>sentence_name</title>
+<p>This is an example guide page. It's main function is to link together the help topics.</p>
+
+</page>
